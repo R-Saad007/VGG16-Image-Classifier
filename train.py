@@ -1,5 +1,7 @@
 from libraries import *
-from normalize_load_data import train_dataloader, data_augment_loader
+from normalize_load_data import train_dataloader
+# we can use the dataloader below for data augmentation
+# from normalize_load_data import data_augment_loader
 from vgg import *
 
 # Train function
@@ -34,5 +36,5 @@ def train(epochs):
         print("-----------------------------------------")
         # Calling scheduler to adjust learning rate
         scheduler.step()
-    print('Finished Training')
+    print(f'Finished Training Epoch {epochs}')
     return epoch_loss
