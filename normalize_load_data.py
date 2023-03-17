@@ -9,17 +9,17 @@ transform = transforms.Compose([
     transforms.ToTensor(),
     transforms.Resize((32,32)),
     # normalizing tensors
-    transforms.Normalize((0.485, 0.456, 0.406), (0.229, 0.224, 0.225)) # ((mean of 0.5 for R,G,B) (sd of 0.5 for R,G,G))
+    transforms.Normalize((0.485, 0.456, 0.406), (0.229, 0.224, 0.225)) # ((mean of 0.5 for R,G,B) (sd of 0.5 for R,G,G)) (ImageNet standard)
 ])
 
-# # transform function for data augmentation
-# transform_augmented = transforms.Compose([
-#     transforms.ToTensor(),
-#     transforms.Normalize((0.485, 0.456, 0.406), (0.229, 0.224, 0.225)),
-#     transforms.CenterCrop(10),
-#     transforms.GaussianBlur(kernel_size=(5,9),sigma=(0.1,5)),
-#     transforms.Resize((32,32))
-# ])
+# transform function for data augmentation
+transform_augmented = transforms.Compose([
+    transforms.ToTensor(),
+    transforms.Normalize((0.485, 0.456, 0.406), (0.229, 0.224, 0.225)),
+    transforms.CenterCrop(10),
+    transforms.GaussianBlur(kernel_size=(5,9),sigma=(0.1,5)),
+    transforms.Resize((32,32))
+])
 
 # setting batch size (multiples of 2 i.e. 2,4,8,16,32)
 BATCH_SIZE = 16
@@ -32,7 +32,7 @@ train_data = torchvision.datasets.CIFAR10(root='./data', train=True, download=Tr
 test_data = torchvision.datasets.CIFAR10(root='./data', train=False, download=True, transform=transform)
 
 # augmented dataset
-augmented_dataset = torchvision.datasets.CIFAR10(root='./data', train=True, download=True, transform=transform)
+augmented_dataset = torchvision.datasets.CIFAR10(root='./data', train=True, download=True, transform=transform_augmented)
 augmented_dataset = torch.utils.data.ConcatDataset([augmented_dataset, train_data])
 
 # creating dataloaders
