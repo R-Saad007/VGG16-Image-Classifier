@@ -1,6 +1,4 @@
 from libraries import *
-from scipy.interpolate import make_interp_spline
-
 
 # function to print and save graphs
 def graph(acc_list, loss_list, epochs):
@@ -14,12 +12,12 @@ def graph(acc_list, loss_list, epochs):
     plt.xlabel("Epochs")
     plt.ylabel("Accuracy")
     plt.title("Test Accuracy vs Epoch")
-    plt.savefig("accuracy_graph(1).png")
+    plt.savefig("accuracy_graph(2).png")
     plt.figure()
     plt.axis([0, epoch_list.max(), 0, loss_list.max()])
     plt.plot(epoch_list, loss_list, 'o-')
     plt.xlabel("Epochs")
     plt.ylabel("Loss")
     plt.title("Training Loss vs Epoch")
-    plt.savefig("loss_graph(1).png")
+    plt.savefig("loss_graph(2).png")
     return
