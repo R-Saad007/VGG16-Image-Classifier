@@ -7,6 +7,7 @@ torch.manual_seed(7)
 transform = transforms.Compose([
     # conversion to tensors
     transforms.ToTensor(),
+    transforms.Resize((32,32)),
     # normalizing tensors
     transforms.Normalize((0.485, 0.456, 0.406), (0.229, 0.224, 0.225)) # ((mean of 0.5 for R,G,B) (sd of 0.5 for R,G,G))
 ])
