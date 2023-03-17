@@ -97,4 +97,5 @@ VGG16_net = VGG16().to(device)
 # Loss and optimizer
 criterion = nn.CrossEntropyLoss()
 optimizer = torch.optim.SGD(VGG16_net.parameters(), lr=0.001, weight_decay = 0.005, momentum = 0.9)
+# scheduler for dynamically adjusting the learning rate
 scheduler = StepLR(optimizer, step_size=2,gamma=0.1)
