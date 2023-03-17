@@ -23,7 +23,7 @@ def inference():
     # image resize
     transforms.Resize((32,32)),
     # normalizing tensors
-    transforms.Normalize((0.5,0.5,0.5),(0.5,0.5,0.5)) # ((mean of 0.5 for R,G,B) (sd of 0.5 for R,G,B))
+    transforms.Normalize((0.485, 0.456, 0.406), (0.229, 0.224, 0.225)) # ((mean of 0.5 for R,G,B) (sd of 0.5 for R,G,B))
     ])
     # inference dataset
     inference_dataset = torchvision.datasets.ImageFolder('./inference_images', transform=data_transforms)
