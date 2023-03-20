@@ -1,5 +1,4 @@
 import torch
-from torch.utils.data.sampler import SubsetRandomSampler
 import torch.nn as nn
 import torch.optim as optimizer
 import torch.nn.functional as F
