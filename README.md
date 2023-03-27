@@ -6,7 +6,7 @@
 ```python inference.py -img_path 'enter inference images path' -model_path 'enter the saved model's path'```
 ### In our case:
 #### img_path = './inference_images/images/'
-#### model_path = './cifar_net.pth'
+#### model_path = './cifar_net.pth' (you will get this file automatically after running driver.py)
 ### The model is pre-trained using CIFAR10 dataset, hence can be used to classify the following 10 classes:
 - airplane
 - automobile
